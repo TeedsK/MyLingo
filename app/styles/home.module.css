@@ -1,0 +1,61 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .header {
+    background-color: #f8f8f8;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .mainContent {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .intro {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .button {
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    /* Add more button styles */
+  }
+  
+  .dataTable {
+    background-color: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+  }
+  
+  .tableHeader {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #eee;
+    font-weight: bold;
+  }
+  
+  .tableRow {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+  }
+  
+  /* Add any additional styling for buttons, text, and other elements */
+  
