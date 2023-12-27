@@ -5,6 +5,7 @@ import styles from './styles/home.module.css';
 import { useState, useEffect } from 'react';
 
 interface Task {
+  Id: string,
   Title: string;
   SentenceCount: string;
   Description: string;
@@ -18,19 +19,41 @@ export default function Home() {
 
   const jsonData: Task[] = [
     {
+      "Id": "1",
       "Title": "First Task",
-      "SentenceCount": "10",
+      "SentenceCount": "1-3",
       "Description": "A simple task.",
       "Difficulty": "Easy",
       "Completed": true,
       "Saved": false,
-      "Grade": "A"
+      "Grade": "95%"
     },
     {
+      "Id": "2",
       "Title": "Second Task",
-      "SentenceCount": "5",
+      "SentenceCount": "5-10",
       "Description": "A more complex task.",
       "Difficulty": "Hard",
+      "Completed": false,
+      "Saved": true,
+      "Grade": "N/A"
+    },
+    {
+      "Id": "3",
+      "Title": "Third Task",
+      "SentenceCount": "5-10",
+      "Description": "A more complex task.",
+      "Difficulty": "Hard",
+      "Completed": false,
+      "Saved": true,
+      "Grade": "N/A"
+    },
+    {
+      "Id": "4",
+      "Title": "Fourth Task",
+      "SentenceCount": "5-10",
+      "Description": "A more complex task.",
+      "Difficulty": "Medium",
       "Completed": false,
       "Saved": true,
       "Grade": "N/A"
@@ -60,26 +83,29 @@ export default function Home() {
       </Head>
 
       <header className={styles.header}>
+        <h2>MyLingo</h2>
         {/* Navigation bar content */}
       </header>
       
       <main className={styles.mainContent}>
         <section className={styles.dataTable}>
           <div className={styles.tableHeader}>
+            <span>Id</span>
             <span>Title</span>
-            <span>Sentence Count</span>
+            <span className={styles.tableSentenceCount}>Sentences</span>
             <span>Description</span>
-            <span>Difficulty</span>
+            <span className={styles.tableDifficulty}>Difficulty</span>
             <span>Completed</span>
             <span>Saved</span>
             <span>Grade</span>
           </div>
           {tasks.map((task, index) => (
             <div key={index} className={styles.tableRow}>
-              <span>{task.Title}</span>
-              <span>{task.SentenceCount}</span>
+              <span>{task.Id}</span>
+              <span className={styles.tableTitleLink}>{task.Title}</span>
+              <span className={styles.tableSentenceCount}>{task.SentenceCount}</span>
               <span>{task.Description}</span>
-              <span>{task.Difficulty}</span>
+              <span className={styles.tableDifficulty + " " + styles[task.Difficulty.toLowerCase()]}><span>{task.Difficulty}</span></span>
               <span>{task.Completed ? 'Yes' : 'No'}</span>
               <span>{task.Saved ? 'Yes' : 'No'}</span>
               <span>{task.Grade}</span>

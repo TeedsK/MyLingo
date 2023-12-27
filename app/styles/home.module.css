@@ -35,27 +35,101 @@
   
   .dataTable {
     background-color: white;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 2rem;
+    border-radius: 8px; /* Adjust as needed for rounded corners */
+    overflow: hidden; /* Ensures the inner content doesn't spill out of the rounded corners */
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    /* border: 1px solid black; Add a black border if you don't already have one */
+  }
+  
+  .tableHeader, .tableRow {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-bottom: 2px solid #eff1f7;
   }
   
   .tableHeader {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
-    background-color: #eee;
+    border-top-left-radius: 8px; /* Match to the .dataTable border-radius */
+    border-top-right-radius: 8px; /* Match to the .dataTable border-radius */
     font-weight: bold;
   }
   
-  .tableRow {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
-    align-items: center;
-    border-bottom: 1px solid #eee;
+  .tableRow:last-child {
+    /* border-bottom: none; */
+    border-bottom-left-radius: 8px; /* Match to the .dataTable border-radius */
+    border-bottom-right-radius: 8px; /* Match to the .dataTable border-radius */
   }
   
-  /* Add any additional styling for buttons, text, and other elements */
+  .tableHeader span, .tableRow span {
+    flex: 1;
+    text-align: left;
+    color: #35373e;
+    padding: 8px 15px;
+    font-size: 0.9em;
+    /* margin-top: 5px;
+    margin-bottom: 5px; */
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    /* max-width: 120px; Set a max-width for content to decide when to scroll */
+  }
+
+  .tableHeader span:first-child, .tableRow span:first-child {
+    max-width: 45px;
+  }
+
+  .tableRow span:not(:first-child) {
+    border-left: 2px solid #eff1f7;
+  }
   
+  /* Styling for the scrollbar for better visibility (optional) */
+  .tableRow span::-webkit-scrollbar {
+    height: 6px;
+  }
+  
+  .tableRow span::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+  }
+  
+  /* Make sure to include these styles for other browsers that use standard properties */
+  .tableRow span {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+  }
+
+  .tableTitleLink:hover {
+    color: #2E9AE1;
+    cursor: pointer;
+  }
+
+  .tableSentenceCount {
+    max-width: 110px;
+  }
+
+  .tableDifficulty {
+    max-width: 150px;
+  }
+
+  .tableRow .tableDifficulty span{
+    /* background-color: #f5f5fb; */
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+  }
+
+  .easy span{
+    background-color: #d4edda; /* light green */
+    color: #155724; /* dark green */
+  }
+  
+  .medium span {
+    background-color: #fff3cd; /* light yellow */
+    color: #856404; /* dark yellow */
+  }
+  
+  .hard span {
+    background-color: #f8d7da; /* light red */
+    color: #721c24; /* dark red */
+  }
